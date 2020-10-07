@@ -12,7 +12,7 @@ export interface FilterInputCompProps {
 
 export interface ICountry {
   name: string;
-  population: string;
+  population: number;
   capital: string;
   region: string;
   flag: string;
