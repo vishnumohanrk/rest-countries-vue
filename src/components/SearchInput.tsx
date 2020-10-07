@@ -12,6 +12,7 @@ const SearchInput: React.FC<FilterInputCompProps> = ({ value, setValue }) => {
         <Icon name="search" color="gray.500" />
       </InputLeftElement>
       <Input
+        aria-label="Search For country"
         type="text"
         placeholder="Search for a Country..."
         value={value}

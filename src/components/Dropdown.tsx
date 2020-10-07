@@ -9,6 +9,7 @@ const Dropdown: React.FC<FilterInputCompProps> = ({ value, setValue }) => {
 
   return (
     <Select
+      aria-label="Filter Results by region"
       mt={{ base: 4, sm: 0 }}
       w={{ base: '100%', sm: 2 / 5, md: 2 / 7, lg: 1 / 6 }}
       placeholder="Filter By Region"
