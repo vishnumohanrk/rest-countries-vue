@@ -1,7 +1,7 @@
 import { Flex } from '@chakra-ui/core';
 import React from 'react';
 
-import { TStringToVoid } from '../models/models';
+import { TStringToVoid } from '../utils/models';
 import Dropdown from './Dropdown';
 import SearchInput from './SearchInput';
 

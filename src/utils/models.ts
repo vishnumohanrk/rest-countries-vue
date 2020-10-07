@@ -9,3 +9,11 @@ export interface FilterInputCompProps {
   value: string;
   setValue: TStringToVoid;
 }
+
+export interface ICountry {
+  name: string;
+  population: string;
+  capital: string;
+  region: string;
+  flag: string;
+}

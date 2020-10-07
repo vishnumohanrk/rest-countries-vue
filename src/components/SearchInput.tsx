@@ -1,7 +1,7 @@
 import { Icon, Input, InputGroup, InputLeftElement } from '@chakra-ui/core';
 import React from 'react';
 
-import { FilterInputCompProps } from '../models/models';
+import { FilterInputCompProps } from '../utils/models';
 
 const SearchInput: React.FC<FilterInputCompProps> = ({ value, setValue }) => {
   const handleInput = (e: React.FormEvent<HTMLInputElement>) => setValue(e.currentTarget.value);

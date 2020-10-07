@@ -1,8 +1,8 @@
 import { Select } from '@chakra-ui/core';
 import React from 'react';
 
-import { REGIONS } from '../models/constants';
-import { FilterInputCompProps } from '../models/models';
+import { REGIONS } from '../utils/constants';
+import { FilterInputCompProps } from '../utils/models';
 
 const Dropdown: React.FC<FilterInputCompProps> = ({ value, setValue }) => {
   const handleSelect = (e: React.FormEvent<HTMLSelectElement>) => setValue(e.currentTarget.value);
