@@ -1,10 +1,10 @@
-import { Button, Flex } from '@chakra-ui/core';
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 
 import CardSection from '../src/components/CountryCard/CardSection';
 import FilterContainer from '../src/components/FilterContainer';
 import Header from '../src/components/Header';
+import ShowMore from '../src/components/ShowMore';
 import BaseLayout from '../src/layouts/BaseLayout';
 import { getData } from '../src/utils/APIResp';
 import { ICountry } from '../src/utils/models';
@@ -32,7 +32,7 @@ const AppHome: React.FC = () => {
     let newList: ICountry[] = fullData;
 
     if (searchQuery) {
-      newList = fullData.filter(i => i.name.match(new RegExp(searchQuery, 'gi')));
+      newList = newList.filter(i => i.name.match(new RegExp(searchQuery, 'gi')));
     }
 
     if (region) {
@@ -57,17 +57,12 @@ const AppHome: React.FC = () => {
           searchQuery={searchQuery}
           setRegion={setRegion}
           setSearchQuery={setSearchQuery}
+          count={viewData?.length}
         />
         {viewData && (
           <>
             <CardSection dataList={viewData.slice(0, 20)} />
-            {!showMore && viewData?.length > 20 && (
-              <Flex justify="center" mt={4} mb={8}>
-                <Button w="sm" onClick={() => setShowMore(true)}>
-                  Show More
-                </Button>
-              </Flex>
-            )}
+            {!showMore && viewData?.length > 20 && <ShowMore pressed={() => setShowMore(true)} />}
             {showMore && <CardSection dataList={viewData.slice(20)} />}
           </>
         )}
