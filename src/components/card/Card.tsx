@@ -7,7 +7,7 @@ import CardTitle from './CardTitle';
 import CardTxtInfo from './CardTxtInfo';
 
 const Card: React.FC<ICountry> = props => {
-  const { capital, flagSrc, name, population, region } = props;
+  const { capital, flag, name, population, region } = props;
 
   return (
     <Flex
@@ -19,7 +19,7 @@ const Card: React.FC<ICountry> = props => {
       _hover={{ transform: 'translateY(-5px)', boxShadow: 'dark-lg' }}
       _focus={{ transform: 'translateY(-5px)', boxShadow: 'dark-lg' }}
     >
-      <CardFlag countryName={name} flagSrc={flagSrc} />
+      <CardFlag countryName={name} flagSrc={flag} />
       <CardTitle txt={name} mt={5} mb={3} px={6} />
       <Box mb={8} px={6}>
         <CardTxtInfo

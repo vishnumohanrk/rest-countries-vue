@@ -8,7 +8,7 @@ export type TRegion =
 
 export interface ICountry {
   name: string;
-  flagSrc: string;
+  flag: string;
   population: number;
   region: string;
   capital: string;
