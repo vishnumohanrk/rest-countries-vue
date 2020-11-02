@@ -1,21 +1,35 @@
-import { Flex } from '@chakra-ui/core';
-import React from 'react';
+import { GetStaticProps } from 'next';
+import React, { useState } from 'react';
 
-import Dropdown from '../components/form/Dropdown';
-import FormInput from '../components/form/FormInput';
+import CardGrid from '../components/card/CardGrid';
+import FormContainer from '../components/form/FormContainer';
+import ShowMoreBtn from '../components/ShowMoreBtn';
+import { getAllCountries } from '../utils/helperFns';
+import { ICountry } from '../utils/model';
 
-const AppHome: React.FC = () => (
-  <>
-    <Flex
-      as="section"
-      direction={{ base: 'column', sm: 'row' }}
-      justify={{ sm: 'space-between' }}
-      mb={5}
-    >
-      <FormInput />
-      <Dropdown />
-    </Flex>
-  </>
-);
+interface AppHomeCompProps {
+  data: ICountry[];
+}
+
+const AppHome: React.FC<AppHomeCompProps> = props => {
+  const [showMore, setShowMore] = useState<boolean>(false);
+
+  return (
+    <>
+      <FormContainer />
+      <CardGrid data={props.data.slice(0, 20)} />
+      {!showMore ? (
+        <ShowMoreBtn handleClick={() => setShowMore(!showMore)} />
+      ) : (
+        <CardGrid data={props.data.slice(20)} />
+      )}
+    </>
+  );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const data = await getAllCountries();
+  return { props: { data } };
+};
 
 export default AppHome;
