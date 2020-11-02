@@ -1,21 +1,25 @@
 import { Select } from '@chakra-ui/core';
-import React, { useState } from 'react';
+import React from 'react';
 
 import { REGIONS } from '../../utils/constants';
-import { TRegion } from '../../utils/model';
+import { TDispatch, TRegion } from '../../utils/model';
 
-const Dropdown: React.FC = () => {
-  const [value, setValue] = useState<TRegion>('Filter By Region');
+interface DropdownCompProps {
+  value: TRegion;
+  handleChange: TDispatch;
+}
 
-  const handleChange = (e: React.FormEvent<HTMLSelectElement>) =>
-    setValue(e.currentTarget.value as TRegion);
+const Dropdown: React.FC<DropdownCompProps> = ({ value, handleChange }) => {
+  const onChange = (e: React.FormEvent<HTMLSelectElement>) =>
+    handleChange({ type: 'filter', payload: e.currentTarget.value as TRegion });
 
   return (
     <Select
+      aria-label="Filter by Region"
       w={{ base: '100%', sm: 2 / 5, md: 2 / 7, lg: 1 / 6 }}
       mt={{ base: 4, sm: 0 }}
       value={value}
-      onChange={handleChange}
+      onChange={onChange}
     >
       {REGIONS.map(i => (
         <option value={i} key={i}>

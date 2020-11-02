@@ -7,11 +7,7 @@ interface ShowMoreBtnCompProps {
 
 const ShowMoreBtn: React.FC<ShowMoreBtnCompProps> = ({ handleClick }) => (
   <Flex justify="center">
-    <Button
-      w={{ base: '100%', sm: '75%', md: '35%' }}
-      colorScheme="blue"
-      onClick={handleClick}
-    >
+    <Button w={{ base: '100%', sm: '75%', md: '35%' }} onClick={handleClick}>
       Show More
     </Button>
   </Flex>

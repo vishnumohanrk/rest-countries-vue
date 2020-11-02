@@ -3,7 +3,7 @@ import { TRegion } from './model';
 export const REGIONS: TRegion[] = [
   'Filter By Region',
   'Africa',
-  'America',
+  'Americas',
   'Asia',
   'Europe',
   'Oceania',
