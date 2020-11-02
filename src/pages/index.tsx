@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next';
+import Head from 'next/head';
 import React, { useEffect, useReducer, useState } from 'react';
 
 import CardGrid from '../components/card/CardGrid';
@@ -16,10 +17,18 @@ const AppHome: React.FC<AppHomeCompProps> = props => {
   const [showMore, setShowMore] = useState<boolean>(false);
   const [state, dispatch] = useReducer(appReducer, intitialState(props.data));
 
-  useEffect(() => setShowMore(false), [state]);
+  useEffect(() => setShowMore(false), [state.viewData]);
 
   return (
     <>
+      <Head>
+        <title>Frontend Mentor - REST Countries</title>
+        <meta
+          name="description"
+          content="Frontend Mentor - REST Countries API with color theme switcher - by Vishnumohan R K"
+        />
+      </Head>
+
       <FormContainer dispatch={dispatch} state={state} />
       <CardGrid data={state.viewData.slice(0, 20)} />
       {!showMore && state.viewData.length > 20 ? (
