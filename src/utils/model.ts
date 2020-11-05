@@ -12,6 +12,7 @@ export interface ICountry {
   population: number;
   region: TRegion;
   capital: string;
+  alpha3Code: string;
 }
 
 export interface IState {
@@ -26,3 +27,12 @@ export type TActionType =
   | { type: 'filter'; payload: TRegion };
 
 export type TDispatch = (x: TActionType) => void;
+
+export interface ICountryPage extends ICountry {
+  nativeName: string;
+  subRegion: string;
+  tld: string[];
+  currencies: string[];
+  languages: string[];
+  borderCountries: string[];
+}

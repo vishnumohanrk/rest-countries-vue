@@ -22,7 +22,7 @@ const AppHome: React.FC<AppHomeCompProps> = props => {
   return (
     <>
       <Head>
-        <title>Frontend Mentor - REST Countries</title>
+        <title>REST Countries - Frontend Mentor Challenge</title>
         <meta
           name="description"
           content="Frontend Mentor - REST Countries API with color theme switcher - by Vishnumohan R K"
@@ -42,7 +42,7 @@ const AppHome: React.FC<AppHomeCompProps> = props => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const data = await getAllCountries();
-  return { props: { data }, revalidate: 1 };
+  return { props: { data } };
 };
 
 export default AppHome;
