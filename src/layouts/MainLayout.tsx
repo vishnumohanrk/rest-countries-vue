@@ -6,7 +6,7 @@ interface MainLayoutCompProps {
 }
 
 const MainLayout: React.FC<MainLayoutCompProps> = ({ children }) => (
-  <Flex as="main" direction="column" maxW="1440px" mx="auto" p={5}>
+  <Flex as="main" direction="column" maxW="1280px" mx="auto" p={5}>
     {children}
   </Flex>
 );

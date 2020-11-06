@@ -12,7 +12,7 @@ const Header: React.FC = () => {
       <Flex
         justify="space-between"
         align="center"
-        maxW="1440px"
+        maxW="1280px"
         mx="auto"
         my={3}
         px={4}
